@@ -26,7 +26,7 @@ def listarMusicas():
 def cadastrar_musica():
     return render_template('cadastra_musica.html')
 
-@app.route('/adicionar')
+@app.route('/adicionar', methods=['POST',])
 def adicionar_musica():
     nome = request.form['txtNome']
     cantorBanda = request.form['txtCantor']
@@ -36,7 +36,7 @@ def adicionar_musica():
 
     lista.append(novaMusica)
 
-    return render_template('lista_musica.html', 
+    return render_template('lista_musicas.html', 
                            titulo = 'Aprendendo do início com Daniel',
                            musicas = lista)
 
