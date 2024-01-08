@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 
 class Musica:
     def __init__(self, nome, cantorBandaGrupo, genero):
@@ -36,9 +36,7 @@ def adicionar_musica():
 
     lista.append(novaMusica)
 
-    return render_template('lista_musicas.html', 
-                           titulo = 'Aprendendo do início com Daniel',
-                           musicas = lista)
+    return redirect('/')
 
 
 app.run(debug=True)
