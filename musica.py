@@ -42,5 +42,12 @@ def adicionar_musica():
 def login():
     return render_template('login.html')
 
+@app.route('/autenticar', methods=['POST',])
+def autenticar():
+    if request.form['txtSenha'] == 'admin':
+        return redirect('/')
+    else:
+        return redirect('/login')
+
 
 app.run(debug=True)
