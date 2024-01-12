@@ -20,20 +20,23 @@
 
     <table>
 
-        <tr>
-            <th>Musica</th>
-            <th>Cantor / Grupo / Banda</th>
-            <th>Genero</th>
-        </tr>
+        <thead>
+            <tr>
+                <th>Musica</th>
+                <th>Cantor / Grupo / Banda</th>
+                <th>Genero</th>
+            </tr>
+        </thead>
 
-        {% for music in musicas %}
-        <tr>
-            <td>{{ music.nome }}</td>
-            <td>{{ music.cantorBanda }}</td>
-            <td>{{ music.genero }}</td>
-        </tr>
-        {% endfor %}
-
+        <tbody>
+            {% for music in musicas %}
+            <tr>
+                <td>{{ music.nome }}</td>
+                <td>{{ music.cantorBanda }}</td>
+                <td>{{ music.genero }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
 
     </table>
 
