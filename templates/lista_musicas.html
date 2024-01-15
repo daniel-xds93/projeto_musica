@@ -5,40 +5,34 @@
     <title>Lista de Musicas</title>
 
     <link rel="stylesheet" href="../static/bootstrap.css">
-
-    <style type="text/css">
-
-        table, td, th{
-            border: 1px solid #000000;
-        }
-
-    </style>
 </head>
 <body>
-    
-    <h2>Musicas cadastradas - {{ titulo }}</h2>
 
-    <table class="table table-hover">
+    <div class="container">
+        <h2>Musicas cadastradas - {{ titulo }}</h2>
 
-        <thead class="table-dark">
-            <tr>
-                <th>Musica</th>
-                <th>Cantor / Grupo / Banda</th>
-                <th>Genero</th>
-            </tr>
-        </thead>
+        <table class="table table-hover">
 
-        <tbody>
-            {% for music in musicas %}
-            <tr>
-                <td>{{ music.nome }}</td>
-                <td>{{ music.cantorBanda }}</td>
-                <td>{{ music.genero }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
+            <thead class="table-dark">
+                <tr>
+                    <th>Musica</th>
+                    <th>Cantor / Grupo / Banda</th>
+                    <th>Genero</th>
+                </tr>
+            </thead>
 
-    </table>
+            <tbody>
+                {% for music in musicas %}
+                <tr>
+                    <td>{{ music.nome }}</td>
+                    <td>{{ music.cantorBanda }}</td>
+                    <td>{{ music.genero }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
 
+        </table>
+
+    </div>
 </body>
 </html>
