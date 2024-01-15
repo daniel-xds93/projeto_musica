@@ -7,16 +7,30 @@
 <body>
     
     <form method="post" action="/adicionar">
-        <label>Nome da Música:</label>
-        <input type="text" name="txtNome">
 
-        <label>Cantor / Grupo / Banda:</label>
-        <input type="text" name="txtCantor">
+        <fieldset>
+            <legend>Digite as informações da musica</legend>
 
-        <label>Genero:</label>
-        <input type="text" name="txtGenero">
+            <div>
+                <label>Nome da Música:</label>
+                <input type="text" name="txtNome">
+            </div>
 
-        <button type="submit">Cadastrar Musica</button>
+            <div>
+                <label>Cantor / Grupo / Banda:</label>
+                <input type="text" name="txtCantor">
+            </div>
+
+            <div>
+                <label>Genero:</label>
+                <input type="text" name="txtGenero">
+            </div>
+
+            <div>
+                <button type="submit">Cadastrar Musica</button>
+            </div>
+
+        </fieldset>
     </form>
 
 
