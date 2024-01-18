@@ -58,7 +58,7 @@ def autenticar():
 def sair():
     session['usuario_logado'] = None
 
-    return redirect('/')
+    return redirect('/login')
 
 
 
