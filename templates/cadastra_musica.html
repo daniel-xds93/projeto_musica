@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>Cadastrar Musica</title>
-    <link rel="stylesheet" href="../static/bootstrap.css">
-</head>
-<body>
-    
+{% extends "padrao.html" %}
+
+{% block conteudo %}
     <form method="post" action="/adicionar">
 
         <fieldset>
@@ -33,7 +27,4 @@
 
         </fieldset>
     </form>
-
-
-</body>
-</html>
+{% endblock %}
