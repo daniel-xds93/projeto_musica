@@ -21,12 +21,13 @@ app.secret_key = 'aprendendodoiniciocomdaniel'
 def listarMusicas():
 
     return render_template('lista_musicas.html', 
-                           titulo = 'Aprendendo do início com Daniel',
+                           titulo = 'Musicas cadastradas',
                            musicas = lista)
 
 @app.route('/cadastrar')
 def cadastrar_musica():
-    return render_template('cadastra_musica.html')
+    return render_template('cadastra_musica.html', 
+                           titulo = "Cadastrar música")
 
 @app.route('/adicionar', methods=['POST',])
 def adicionar_musica():
