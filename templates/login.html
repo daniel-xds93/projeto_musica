@@ -9,9 +9,9 @@
 
     {% with messages = get_flashed_messages() %}
         {% if messages %}
-            <ul class="flashes">
+            <ul class="list-unstyled" id="messages">
                 {% for message in messages %}
-                    <li>{{ message }}</li>
+                    <li class="alert alert-danger">{{ message }}</li>
                 {% endfor %}
             </ul>
         {% endif %}
