@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, session
+from flask import Flask, render_template, request, redirect, session, flash
 
 class Musica:
     def __init__(self, nome, cantorBandaGrupo, genero):
@@ -51,8 +51,13 @@ def autenticar():
         
         session['usuario_logado'] = request.form['txtLogin']
         
+        flash("Usuário logado com sucesso!")
+
         return redirect('/')
     else:
+
+        flash("Usuário ou Senha inválida!")
+
         return redirect('/login')
 
 @app.route('/sair')

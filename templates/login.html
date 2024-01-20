@@ -7,27 +7,38 @@
 </head>
 <body>
 
-    <form method="post" action="/autenticar">
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class="flashes">
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
 
-        <fieldset>
+    <div class="container">
+        <form method="post" action="/autenticar">
 
-            <div class="mb-3">
-                <label for="txtLogin">Login</label>
-                <input type="text" class="form-control" id="txtLogin" name="txtLogin">
-            </div>
+            <fieldset>
 
-            <div class="mb-3">
-                <label for="txtSenha">Senha</label>
-                <input type="password" class="form-control" id="txtSenha" name="txtSenha">
-            </div>
+                <div class="mb-3">
+                    <label for="txtLogin">Login</label>
+                    <input type="text" class="form-control" id="txtLogin" name="txtLogin">
+                </div>
 
-            <div class="mb-3">
-                <button type="submit" class="btn btn-primary">Logar</button>
-            </div> 
+                <div class="mb-3">
+                    <label for="txtSenha">Senha</label>
+                    <input type="password" class="form-control" id="txtSenha" name="txtSenha">
+                </div>
 
-        </fieldset>
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-primary">Logar</button>
+                </div> 
 
-    </form>
+            </fieldset>
 
+        </form>
+    </div>
 </body>
 </html>
