@@ -20,12 +20,19 @@ app.secret_key = 'aprendendodoiniciocomdaniel'
 @app.route('/')
 def listarMusicas():
 
+    if session['usuario_logado'] == None or 'usuario_logado' not in session:
+        return redirect(url_for('login'))
+
     return render_template('lista_musicas.html', 
                            titulo = 'Musicas cadastradas',
                            musicas = lista)
 
 @app.route('/cadastrar')
 def cadastrar_musica():
+
+    if session['usuario_logado'] == None or 'usuario_logado' not in session:
+        return redirect(url_for('login'))
+
     return render_template('cadastra_musica.html', 
                            titulo = "Cadastrar música")
 
