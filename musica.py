@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, session, flash
+from flask import Flask, render_template, request, redirect, session, flash, url_for
 
 class Musica:
     def __init__(self, nome, cantorBandaGrupo, genero):
@@ -39,7 +39,7 @@ def adicionar_musica():
 
     lista.append(novaMusica)
 
-    return redirect('/')
+    return redirect(url_for('listarMusicas'))
 
 @app.route('/login')
 def login():
@@ -53,12 +53,12 @@ def autenticar():
         
         flash("Usuário logado com sucesso!")
 
-        return redirect('/')
+        return redirect(url_for('listarMusicas'))
     else:
 
         flash("Usuário ou Senha inválida!")
 
-        return redirect('/login')
+        return redirect(url_for('login'))
 
 @app.route('/sair')
 def sair():
