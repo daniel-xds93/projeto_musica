@@ -78,7 +78,7 @@ def autenticar():
 
             session['usuario_logado'] = request.form['txtLogin']
         
-            flash("Usuário logado com sucesso!")
+            flash(f"Usuário {usuarioEncontrado.login} logado com sucesso!")
 
             return redirect(url_for('listarMusicas'))
     else:
