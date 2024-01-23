@@ -13,6 +13,16 @@ musica03 = Musica('Camisa 10', 'Turma do Pagode', 'Pagode')
 
 lista = [musica01, musica02, musica03]
 
+class Usuario:
+    def __init__(self, nome, login, senha):
+        self.nome = nome
+        self.login = login
+        self.senha = senha
+
+usuario01 = Usuario("Daniel Xavier", "daniel.xds93", "admin")
+usuario02 = Usuario("João Zinho", "joao.zinho", "1234")
+usuario03 = Usuario("Vilma Nunes", "vilmanunes104", "nunes")
+
 app = Flask(__name__)
 
 app.secret_key = 'aprendendodoiniciocomdaniel'
