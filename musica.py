@@ -23,6 +23,12 @@ usuario01 = Usuario("Daniel Xavier", "daniel.xds93", "admin")
 usuario02 = Usuario("João Zinho", "joao.zinho", "1234")
 usuario03 = Usuario("Vilma Nunes", "vilmanunes104", "nunes")
 
+usuarios = {
+    usuario01.login : usuario01,
+    usuario02.login : usuario02,
+    usuario03.login : usuario03
+}
+
 app = Flask(__name__)
 
 app.secret_key = 'aprendendodoiniciocomdaniel'
