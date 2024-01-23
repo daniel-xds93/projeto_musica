@@ -70,13 +70,17 @@ def login():
 
 @app.route('/autenticar', methods=['POST',])
 def autenticar():
-    if request.form['txtSenha'] == 'admin':
-        
-        session['usuario_logado'] = request.form['txtLogin']
-        
-        flash("Usuário logado com sucesso!")
+    if request.form['txtLogin'] in usuarios:
 
-        return redirect(url_for('listarMusicas'))
+        usuarioEncontrado = usuarios[request.form['txtLogin']]
+
+        if request.form['txtSenha'] == usuarioEncontrado.senha:
+
+            session['usuario_logado'] = request.form['txtLogin']
+        
+            flash("Usuário logado com sucesso!")
+
+            return redirect(url_for('listarMusicas'))
     else:
 
         flash("Usuário ou Senha inválida!")
