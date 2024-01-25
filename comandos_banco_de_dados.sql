@@ -41,6 +41,8 @@ select * from musica where nome_musica like '%a%';
 
 select * from musica where genero_musica <> 'Popp';
 
+select * from musica where id_musica <= 5;
+
 
 
 
