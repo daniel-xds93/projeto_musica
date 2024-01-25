@@ -39,6 +39,8 @@ select * from musica where cantor_banda like '%e%';
 
 select * from musica where nome_musica like '%a%';
 
+select * from musica where genero_musica <> 'Popp';
+
 
 
 
