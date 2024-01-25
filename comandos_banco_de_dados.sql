@@ -33,7 +33,11 @@ use playmusica;
 
 select * from musica where cantor_banda = 'Vitor Kley';
 
+select * from musica;
 
+select * from musica where cantor_banda like '%e%';
+
+select * from musica where nome_musica like '%a%';
 
 
 
