@@ -8,6 +8,10 @@ create table musica(
     cantor_banda varchar(50) not null,
     genero_musica varchar(20) not null);
     
+select * from musica;
+
+select nome_musica, genero_musica from musica;
+
 
 
 
