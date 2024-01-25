@@ -12,6 +12,16 @@ select * from musica;
 
 select nome_musica, genero_musica from musica;
 
+insert into musica(nome_musica, cantor_banda, genero_musica)
+values('Todavia me alegrarei', 'Samuel Messias', 'Gospel');
+
+select * from musica;
+
+select nome_musica, genero_musica from musica;
+
+insert into musica(nome_musica, cantor_banda, genero_musica)
+values('O sol', 'Vitor Kley', 'Pop');
+
 
 
 
