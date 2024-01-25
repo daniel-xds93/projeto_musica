@@ -29,6 +29,10 @@ values('Cavalo de Troia', 'Mc Kelvin', 'Funk'),
 ('Lobo Guará', 'Hungria', 'Rep'),
 ('Meu abrigo', 'Mellin', 'Popp');
 
+use playmusica;
+
+select * from musica where cantor_banda = 'Vitor Kley';
+
 
 
 
