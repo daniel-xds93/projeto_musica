@@ -56,7 +56,9 @@ where id_musica = 7;
 
 update musica set genero_musica = 'Rap' where id_musica = 6;
 
+delete from musica where id_musica = 3;
 
+select * from musica;
 
 
 
