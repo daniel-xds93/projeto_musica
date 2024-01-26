@@ -54,6 +54,10 @@ select * from musica;
 update musica set cantor_banda = 'Melim', genero_musica = 'Pop' 
 where id_musica = 7;
 
+update musica set genero_musica = 'Rap' where id_musica = 6;
+
+
+
 
 
 
