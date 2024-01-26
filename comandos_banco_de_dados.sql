@@ -43,6 +43,16 @@ select * from musica where genero_musica <> 'Popp';
 
 select * from musica where id_musica <= 5;
 
+select * from musica where id_musica >= 4;
+
+update musica set genero_musica = 'Sertanejo' where id_musica = 5;
+
+select * from musica where id_musica = 7;
+
+select * from musica;
+
+update musica set cantor_banda = 'Melim', genero_musica = 'Pop' 
+where id_musica = 7;
 
 
 
