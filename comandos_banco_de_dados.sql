@@ -89,6 +89,7 @@ values('Daniel Oliveira', 'daniel.xds93', 'oliveira');
 
 truncate table usuario;
 
-
+alter table usuario
+add unique(login_usuario);
 
 
