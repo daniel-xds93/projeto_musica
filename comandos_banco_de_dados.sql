@@ -87,6 +87,8 @@ insert into usuario(nome_usuario, login_usuario, senha_usuario)
 values('Daniel Oliveira', 'daniel.xds93', 'oliveira');
 
 
+truncate table usuario;
+
 
 
 
