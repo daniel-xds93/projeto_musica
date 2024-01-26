@@ -92,4 +92,17 @@ truncate table usuario;
 alter table usuario
 add unique(login_usuario);
 
+insert into usuario(nome_usuario, login_usuario, senha_usuario)
+values('Daniel Xavier', 'daniel.xds93', 'admin'),
+('Vilma Nunes', 'vilmanunes104', 'nunes');
+
+select * from usuario;
+
+insert into usuario(nome_usuario, login_usuario, senha_usuario)
+values('Daniel Oliveira', 'daniel.xds94', 'oliveira');
+
+
+
+
+
 
