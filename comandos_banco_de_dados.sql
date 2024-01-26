@@ -60,6 +60,18 @@ delete from musica where id_musica = 3;
 
 select * from musica;
 
+/* 
+	Abaixo ficam os comandos da tabela de usuarios
+*/
+ -- comentario de uma linha
+ 
+create table usuario(
+	id_usuario int primary key auto_increment not null,
+    nome_usuario varchar(50) not null,
+    login_usuario varchar(20) not null,
+    senha_usuario varchar(15) not null);
+
+select * from usuario;
 
 
 
