@@ -74,6 +74,18 @@ create table usuario(
 select * from usuario;
 
 
+insert into usuario(nome_usuario, login_usuario, senha_usuario)
+values('Daniel Xavier', 'daniel.xds93', 'admin');
+
+
+insert into usuario(nome_usuario, login_usuario, senha_usuario)
+values('Vilma Nunes', 'vilmanunes104', 'nunes');
+
+select * from usuario;
+
+insert into usuario(nome_usuario, login_usuario, senha_usuario)
+values('Daniel Oliveira', 'daniel.xds93', 'oliveira');
+
 
 
 
