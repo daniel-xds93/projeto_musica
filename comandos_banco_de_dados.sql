@@ -101,7 +101,7 @@ select * from usuario;
 insert into usuario(nome_usuario, login_usuario, senha_usuario)
 values('Daniel Oliveira', 'daniel.xds94', 'oliveira');
 
-
+delete from usuario where id_usuario = 4;
 
 
 
