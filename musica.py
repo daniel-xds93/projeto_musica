@@ -84,15 +84,16 @@ def login():
 
 @app.route('/autenticar', methods=['POST',])
 def autenticar():
-    if request.form['txtLogin'] in usuarios:
 
-        usuarioEncontrado = usuarios[request.form['txtLogin']]
+    usuario = Usuario.query.filter_by(login_usuario=request.form['txtLogin']).first()
 
-        if request.form['txtSenha'] == usuarioEncontrado.senha:
+    if usuario:
+
+        if request.form['txtSenha'] == usuario.senha_usuario:
 
             session['usuario_logado'] = request.form['txtLogin']
         
-            flash(f"Usuário {usuarioEncontrado.login} logado com sucesso!")
+            flash(f"Usuário {usuario.login_usuario} logado com sucesso!")
 
             return redirect(url_for('listarMusicas'))
         else:
