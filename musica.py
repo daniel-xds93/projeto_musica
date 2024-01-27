@@ -42,6 +42,8 @@ def listarMusicas():
     if session['usuario_logado'] == None or 'usuario_logado' not in session:
         return redirect(url_for('login'))
 
+    lista = Musica.query.order_by(Musica.id_musica)
+
     return render_template('lista_musicas.html', 
                            titulo = 'Musicas cadastradas',
                            musicas = lista)
