@@ -44,6 +44,15 @@ def adicionar_musica():
 
     return redirect(url_for('listarMusicas'))
 
+@app.route('/editar')
+def editar():
+    return render_template('editar_musica.html',
+                           titulo = 'Editar música')
+
+@app.route('/atualizar')
+def atualizar():
+    pass
+
 @app.route('/login')
 def login():
     return render_template('login.html')
