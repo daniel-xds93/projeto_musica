@@ -63,9 +63,18 @@ def adicionar_musica():
     cantorBanda = request.form['txtCantor']
     genero = request.form['txtGenero']
 
-    novaMusica = Musica(nome, cantorBanda, genero)
+    musica = Musica.query.filter_by(nome_musica=nome).first()
 
-    lista.append(novaMusica)
+    if musica:
+        flash("Musica ja está cadastrada!")
+        return redirect(url_for('listarMusicas'))
+    
+    nova_musica = Musica(nome_musica = nome, cantor_banda = cantorBanda, 
+                         genero_musica = genero)
+    
+    db.session.add(nova_musica)
+
+    db.session.commit()
 
     return redirect(url_for('listarMusicas'))
 
