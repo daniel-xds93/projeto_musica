@@ -1,0 +1,29 @@
+{% extends "padrao.html" %}
+
+{% block conteudo %}
+    <form method="post" action="{{ url_for('atualizar') }}">
+
+        <fieldset>
+
+            <div class="mb-3">
+                <label for="txtNome">Nome da Música:</label>
+                <input type="text" name="txtNome" id="txtNome" class="form-control">
+            </div>
+
+            <div class="mb-3">
+                <label for="txtCantor">Cantor / Grupo / Banda:</label>
+                <input type="text" name="txtCantor" id="txtCantor" class="form-control">
+            </div>
+
+            <div class="mb-3">
+                <label for="txtGenero">Genero:</label>
+                <input type="text" name="txtGenero" id="txtGenero" class="form-control">
+            </div>
+
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary">Cadastrar Musica</button>
+            </div>
+
+        </fieldset>
+    </form>
+{% endblock %}
