@@ -104,5 +104,8 @@ values('Daniel Oliveira', 'daniel.xds94', 'oliveira');
 delete from usuario where id_usuario = 4;
 
 
+use playmusica;
+
+select * from usuario;
 
 
