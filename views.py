@@ -56,9 +56,21 @@ def editar(id):
                            titulo = 'Editar música',
                            musica = musicaBuscada)
 
-@app.route('/atualizar')
+@app.route('/atualizar', methods=['POST',])
 def atualizar():
-    pass
+    
+    musica = Musica.query.filter_by(id_musica=request.form['txtId']).first()
+
+    musica.nome_musica = request.form['txtNome']
+    musica.cantor_banda = request.form['txtCantor']
+    musica.genero_musica = request.form['txtGenero']
+
+    db.session.add(musica)
+
+    db.session.commit()
+
+    return redirect(url_for('listarMusicas'))
+    
 
 @app.route('/login')
 def login():
