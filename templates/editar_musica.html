@@ -7,21 +7,24 @@
 
             <div class="mb-3">
                 <label for="txtNome">Nome da Música:</label>
-                <input type="text" name="txtNome" id="txtNome" class="form-control">
+                <input type="text" name="txtNome" id="txtNome" 
+                class="form-control" value="{{ musica.nome_musica }}">
             </div>
 
             <div class="mb-3">
                 <label for="txtCantor">Cantor / Grupo / Banda:</label>
-                <input type="text" name="txtCantor" id="txtCantor" class="form-control">
+                <input type="text" name="txtCantor" id="txtCantor" 
+                class="form-control" value="{{ musica.cantor_banda }}">
             </div>
 
             <div class="mb-3">
                 <label for="txtGenero">Genero:</label>
-                <input type="text" name="txtGenero" id="txtGenero" class="form-control">
+                <input type="text" name="txtGenero" id="txtGenero" 
+                class="form-control" value="{{ musica.genero_musica }}">
             </div>
 
             <div class="mb-3">
-                <button type="submit" class="btn btn-primary">Cadastrar Musica</button>
+                <button type="submit" class="btn btn-primary">Salva</button>
             </div>
 
         </fieldset>

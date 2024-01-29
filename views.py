@@ -44,14 +44,17 @@ def adicionar_musica():
 
     return redirect(url_for('listarMusicas'))
 
-@app.route('/editar')
-def editar():
+@app.route('/editar/<int:id>')
+def editar(id):
 
     if session['usuario_logado'] == None or 'usuario_logado' not in session:
         return redirect(url_for('login'))
 
+    musicaBuscada = Musica.query.filter_by(id_musica=id).first()
+
     return render_template('editar_musica.html',
-                           titulo = 'Editar música')
+                           titulo = 'Editar música',
+                           musica = musicaBuscada)
 
 @app.route('/atualizar')
 def atualizar():
