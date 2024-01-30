@@ -1,9 +1,11 @@
 {% extends "padrao.html" %}
 
 {% block conteudo %}
-    <form method="post" action="/adicionar">
+    <form method="post" action="/adicionar" enctype="multipart/form-data">
 
         <fieldset>
+
+            <input type="file" name="arquivo" accept=".jpg, .jpeg, .png">
 
             <div class="mb-3">
                 <label for="txtNome">Nome da Música:</label>
