@@ -18,7 +18,10 @@
             <td>{{ music.nome_musica }}</td>
             <td>{{ music.cantor_banda }}</td>
             <td>{{ music.genero_musica }}</td>
-            <td><a href="{{ url_for('editar', id=music.id_musica) }}">Editar</a></td>
+            <td>
+                <a href="{{ url_for('editar', id=music.id_musica) }}">Editar</a>
+                <a href="{{ url_for('excluir', id=music.id_musica) }}">Excluir</a>
+            </td>
         </tr>
         {% endfor %}
     </tbody>

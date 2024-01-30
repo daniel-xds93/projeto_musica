@@ -70,7 +70,19 @@ def atualizar():
     db.session.commit()
 
     return redirect(url_for('listarMusicas'))
+
+@app.route('/excluir/<int:id>')
+def excluir(id):
+    if 'usuario_logado' not in session or session['usuario_logado'] == None:
+        return redirect(url_for('login'))
     
+    Musica.query.filter_by(id_musica=id).delete()
+
+    db.session.commit()
+
+    flash("Musica excluída com sucesso")
+
+    return redirect(url_for('listarMusicas'))
 
 @app.route('/login')
 def login():
