@@ -42,6 +42,13 @@ def adicionar_musica():
 
     db.session.commit()
 
+    arquivo = request.files['arquivo']
+
+    pasta_arquivos = app.config['UPLOAD_PASTA']
+
+    arquivo.save(f'{pasta_arquivos}/album{nova_musica.id_musica}.jpg')
+    # album6
+
     return redirect(url_for('listarMusicas'))
 
 @app.route('/editar/<int:id>')
