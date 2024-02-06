@@ -47,7 +47,15 @@ def adicionar_musica():
 
     pasta_arquivos = app.config['UPLOAD_PASTA']
 
-    arquivo.save(f'{pasta_arquivos}/album{nova_musica.id_musica}.jpg')
+    nome_arquivo = arquivo.filename
+
+    nome_arquivo = nome_arquivo.split('.')
+
+    extensao = nome_arquivo[len(nome_arquivo)-1]
+
+    nome_completo = f'album{nova_musica.id_musica}.{extensao}'
+
+    arquivo.save(f'{pasta_arquivos}/{nome_completo}')
     # album6
 
     return redirect(url_for('listarMusicas'))
