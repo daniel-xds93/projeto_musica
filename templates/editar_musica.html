@@ -1,7 +1,7 @@
 {% extends "padrao.html" %}
 
 {% block conteudo %}
-    <form method="post" action="{{ url_for('atualizar') }}">
+    <form method="post" action="{{ url_for('atualizar') }}" enctype="multipart/form-data">
 
         <fieldset>
             <div class="mb-3">

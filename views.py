@@ -87,6 +87,19 @@ def atualizar():
 
     db.session.commit()
 
+    arquivo = request.files['arquivo']
+    pasta_upload = app.config['UPLOAD_PASTA']
+
+    nome_arquivo = arquivo.filename
+
+    nome_arquivo = nome_arquivo.split('.')
+
+    extensao = nome_arquivo[len(nome_arquivo)-1]
+
+    nome_completo = f'album{musica.id_musica}.{extensao}'
+
+    arquivo.save(f'{pasta_upload}/{nome_completo}')
+
     return redirect(url_for('listarMusicas'))
 
 @app.route('/excluir/<int:id>')
