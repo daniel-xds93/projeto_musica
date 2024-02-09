@@ -2,6 +2,7 @@ from flask import render_template, request, redirect, session, flash, url_for, s
 from models import Musica, Usuario
 from musica import db, app
 from definicoes import recupera_imagem
+import time
 
 @app.route('/')
 def listarMusicas():
@@ -53,7 +54,9 @@ def adicionar_musica():
 
     extensao = nome_arquivo[len(nome_arquivo)-1]
 
-    nome_completo = f'album{nova_musica.id_musica}.{extensao}'
+    momento = time.time()
+
+    nome_completo = f'album{nova_musica.id_musica}_{momento}.{extensao}'
 
     arquivo.save(f'{pasta_arquivos}/{nome_completo}')
     # album6
@@ -96,7 +99,9 @@ def atualizar():
 
     extensao = nome_arquivo[len(nome_arquivo)-1]
 
-    nome_completo = f'album{musica.id_musica}.{extensao}'
+    momento = time.time()
+
+    nome_completo = f'album{musica.id_musica}_{momento}.{extensao}'
 
     arquivo.save(f'{pasta_upload}/{nome_completo}')
 
