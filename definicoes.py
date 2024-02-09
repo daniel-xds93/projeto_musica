@@ -12,3 +12,9 @@ def recupera_imagem(id):
             return nome_imagem
         
     return 'default.png'
+
+def deletar_imagem(id):
+    imagem = recupera_imagem(id) 
+
+    if imagem != 'default.png':
+        os.remove(os.path.join(app.config['UPLOAD_PASTA'], imagem))
