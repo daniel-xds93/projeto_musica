@@ -4,17 +4,20 @@
     <form method="post" action="{{ url_for('atualizar') }}" enctype="multipart/form-data">
 
         <fieldset>
-            <div class="mb-3">
-                <img src="{{ url_for('imagem', nome_imagem=album_musica) }}">
-            </div>
+            <figure class="img-thmbnail mb-3">
+                <img class="img-fluid" src="{{ url_for('imagem', nome_imagem=album_musica) }}">
 
-            <div class="mb-3">
+                <figcaption>
+                    <label for="arquivo" class="form-control">
+                        Selecione uma nova imagem
+                        <input type="file" name="arquivo" id="arquivo" 
+                        accept=".jpg, .jpeg, .png" class="form-control">
 
-                <label for="arquivo" class="form-label">Selecione uma nova imagem</label>
-                <input type="file" name="arquivo" id="arquivo" 
-                accept=".jpg, .jpeg, .png" class="form-control">
-            </div>
-            
+                    </label>
+                </figcaption>
+            </figure>
+
+        
             <input type="hidden" name="txtId" value="{{musica.id_musica}}">
 
             <div class="mb-3">
