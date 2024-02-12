@@ -15,22 +15,22 @@
             </div>
 
             <div class="mb-3">
-                <label for="txtNome">Nome da Música:</label>
-                <input type="text" name="txtNome" id="txtNome" class="form-control">
+                {{ form.nome.label(class="form-label") }}
+                {{ form.nome(class="form-control") }}
             </div>
 
             <div class="mb-3">
-                <label for="txtCantor">Cantor / Grupo / Banda:</label>
-                <input type="text" name="txtCantor" id="txtCantor" class="form-control">
+                {{ form.grupo.label(class="form-label") }}
+                {{ form.grupo(class="form-control") }}
             </div>
 
             <div class="mb-3">
-                <label for="txtGenero">Genero:</label>
-                <input type="text" name="txtGenero" id="txtGenero" class="form-control">
+                {{ form.genero.label(class="form-label") }}
+                {{ form.genero(class="form-control") }}
             </div>
 
             <div class="mb-3">
-                <button type="submit" class="btn btn-primary">Cadastrar Musica</button>
+                {{ form.cadastrar(class="btn btn-primary") }}
             </div>
 
         </fieldset>
