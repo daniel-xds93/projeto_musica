@@ -29,9 +29,15 @@ def cadastrar_musica():
 
 @app.route('/adicionar', methods=['POST',])
 def adicionar_musica():
-    nome = request.form['txtNome']
-    cantorBanda = request.form['txtCantor']
-    genero = request.form['txtGenero']
+
+    formRecebido = FormularioMusica(request.form)
+
+    if not formRecebido.validate_on_submit():
+        return redirect(url_for('cadastrar_musica'))
+
+    nome = formRecebido.nome.data
+    cantorBanda = formRecebido.grupo.data
+    genero = formRecebido.genero.data
 
     musica = Musica.query.filter_by(nome_musica=nome).first()
 
