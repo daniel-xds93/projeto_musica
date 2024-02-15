@@ -4,6 +4,8 @@
     <form method="post" action="/adicionar" enctype="multipart/form-data">
 
         <fieldset>
+            
+            {{ form.csrf_token() }}
 
             <div class="mb-3">
                 <label for="arquivo" class="form-label">
