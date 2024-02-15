@@ -54,20 +54,22 @@ def adicionar_musica():
 
     arquivo = request.files['arquivo']
 
-    pasta_arquivos = app.config['UPLOAD_PASTA']
+    if arquivo:
 
-    nome_arquivo = arquivo.filename
+        pasta_arquivos = app.config['UPLOAD_PASTA']
 
-    nome_arquivo = nome_arquivo.split('.')
+        nome_arquivo = arquivo.filename
 
-    extensao = nome_arquivo[len(nome_arquivo)-1]
+        nome_arquivo = nome_arquivo.split('.')
 
-    momento = time.time()
+        extensao = nome_arquivo[len(nome_arquivo)-1]
 
-    nome_completo = f'album{nova_musica.id_musica}_{momento}.{extensao}'
+        momento = time.time()
 
-    arquivo.save(f'{pasta_arquivos}/{nome_completo}')
-    # album6
+        nome_completo = f'album{nova_musica.id_musica}_{momento}.{extensao}'
+
+        arquivo.save(f'{pasta_arquivos}/{nome_completo}')
+        # album6
 
     return redirect(url_for('listarMusicas'))
 
