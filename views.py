@@ -111,21 +111,26 @@ def atualizar():
         db.session.commit()
 
         arquivo = request.files['arquivo']
-        pasta_upload = app.config['UPLOAD_PASTA']
 
-        nome_arquivo = arquivo.filename
+        if arquivo:
 
-        nome_arquivo = nome_arquivo.split('.')
+            pasta_upload = app.config['UPLOAD_PASTA']
 
-        extensao = nome_arquivo[len(nome_arquivo)-1]
+            nome_arquivo = arquivo.filename
 
-        momento = time.time()
+            nome_arquivo = nome_arquivo.split('.')
 
-        nome_completo = f'album{musica.id_musica}_{momento}.{extensao}'
+            extensao = nome_arquivo[len(nome_arquivo)-1]
 
-        deletar_imagem(musica.id_musica)
+            momento = time.time()
 
-        arquivo.save(f'{pasta_upload}/{nome_completo}')
+            nome_completo = f'album{musica.id_musica}_{momento}.{extensao}'
+
+            deletar_imagem(musica.id_musica)
+
+            arquivo.save(f'{pasta_upload}/{nome_completo}')
+
+        flash("Musica editada com sucesso!")
 
     return redirect(url_for('listarMusicas'))
 
