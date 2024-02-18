@@ -159,13 +159,15 @@ def login():
 @app.route('/autenticar', methods=['POST',])
 def autenticar():
 
-    usuario = Usuario.query.filter_by(login_usuario=request.form['txtLogin']).first()
+    form = FormularioUsuario(request.form)
+
+    usuario = Usuario.query.filter_by(login_usuario=form.usuario.data).first()
 
     if usuario:
 
-        if request.form['txtSenha'] == usuario.senha_usuario:
+        if form.senha.data == usuario.senha_usuario:
 
-            session['usuario_logado'] = request.form['txtLogin']
+            session['usuario_logado'] = usuario.login_usuario
         
             flash(f"Usuário {usuario.login_usuario} logado com sucesso!")
 
