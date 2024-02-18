@@ -19,21 +19,22 @@
 
     <div class="container">
         <form method="post" action="/autenticar">
+            {{ form.csrf_token() }}
 
             <fieldset>
 
                 <div class="mb-3">
-                    <label for="txtLogin">Login</label>
-                    <input type="text" class="form-control" id="txtLogin" name="txtLogin">
+                   {{ form.usuario.label(class="form-label") }}
+                   {{ form.usuario(class="form-control") }}
                 </div>
 
                 <div class="mb-3">
-                    <label for="txtSenha">Senha</label>
-                    <input type="password" class="form-control" id="txtSenha" name="txtSenha">
+                   {{ form.senha.label(class="form-label") }}
+                   {{ form.senha(class="form-control") }}
                 </div>
 
                 <div class="mb-3">
-                    <button type="submit" class="btn btn-primary">Logar</button>
+                    {{ form.logar(class="btn btn-primary") }}
                 </div> 
 
             </fieldset>

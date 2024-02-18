@@ -1,7 +1,7 @@
 from flask import render_template, request, redirect, session, flash, url_for, send_from_directory
 from models import Musica, Usuario
 from musica import db, app
-from definicoes import recupera_imagem, deletar_imagem, FormularioMusica
+from definicoes import recupera_imagem, deletar_imagem, FormularioMusica, FormularioUsuario
 import time
 
 @app.route('/')
@@ -151,7 +151,10 @@ def excluir(id):
 
 @app.route('/login')
 def login():
-    return render_template('login.html')
+
+    form = FormularioUsuario()
+
+    return render_template('login.html', form = form)
 
 @app.route('/autenticar', methods=['POST',])
 def autenticar():
