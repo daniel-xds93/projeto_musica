@@ -1,7 +1,7 @@
 from flask import render_template, request, redirect, session, flash, url_for, send_from_directory
-from models import Musica, Usuario
+from models import Musica
 from musica import db, app
-from definicoes import recupera_imagem, deletar_imagem, FormularioMusica, FormularioUsuario
+from definicoes import recupera_imagem, deletar_imagem, FormularioMusica
 import time
 
 @app.route('/')
@@ -149,45 +149,7 @@ def excluir(id):
 
     return redirect(url_for('listarMusicas'))
 
-@app.route('/login')
-def login():
 
-    form = FormularioUsuario()
-
-    return render_template('login.html', form = form)
-
-@app.route('/autenticar', methods=['POST',])
-def autenticar():
-
-    form = FormularioUsuario(request.form)
-
-    usuario = Usuario.query.filter_by(login_usuario=form.usuario.data).first()
-
-    if usuario:
-
-        if form.senha.data == usuario.senha_usuario:
-
-            session['usuario_logado'] = usuario.login_usuario
-        
-            flash(f"Usuário {usuario.login_usuario} logado com sucesso!")
-
-            return redirect(url_for('listarMusicas'))
-        else:
-            flash("Senha inválida!")
-
-            return redirect(url_for('login'))
-
-    else:
-
-        flash("Usuário ou Senha inválida!")
-
-        return redirect(url_for('login'))
-
-@app.route('/sair')
-def sair():
-    session['usuario_logado'] = None
-
-    return redirect('/login')
 
 @app.route('/uploads/<nome_imagem>')
 def imagem(nome_imagem):

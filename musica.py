@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, session, flash, url_for
+from flask import Flask
 
 from flask_sqlalchemy import SQLAlchemy
 
@@ -12,7 +12,8 @@ db = SQLAlchemy(app)
 
 csrf = CSRFProtect(app)
 
-from views import *
+from views_musica import *
+from views_usuario import *
 
 if __name__ == '__main__':
     app.run(debug=True)
