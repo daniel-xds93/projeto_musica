@@ -26,6 +26,21 @@ class FormularioUsuario(FlaskForm):
     
     logar = SubmitField('Entrar')
 
+class FormularioCadastroUsuario(FlaskForm):
+
+    nome = StringField('Nome', [validators.DataRequired(), 
+                                           validators.length(min=2, max=50)])
+    
+    usuario = StringField('Usuário', [validators.DataRequired(), 
+                                      validators.length(min=2, max=20)])
+    
+    senha = PasswordField('Senha', [validators.DataRequired(), 
+                                    validators.length(min=6, max=15)])
+    
+    cadastrar = SubmitField("Cadastrar usuário")
+    
+
+
 def recupera_imagem(id):
     for nome_imagem in os.listdir(app.config['UPLOAD_PASTA']):
 
