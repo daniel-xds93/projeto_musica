@@ -1,0 +1,26 @@
+{% extends "padrao.html" %}
+
+{% block conteudo %}
+
+    <form>
+        <div class="mb-3">
+            {{ form.nome.label(class="form-label") }}
+            {{ form.nome(class="form-control") }}
+        </div>
+
+        <div class="mb-3">
+            {{ form.usuario.label(class="form-label") }}
+            {{ form.usuario(class="form-control") }}
+        </div>
+
+        <div class="mb-3">
+            {{ form.senha.label(class="form-label") }}
+            {{ form.senha(class="form-control") }}
+        </div>
+
+        <div class="mb-3">
+            {{ form.cadastrar(class="btn btn-primary") }}
+        </div>
+    </form>
+
+{% endblock %}
