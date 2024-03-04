@@ -1,6 +1,6 @@
 from flask import render_template, request, redirect, session, flash, url_for
 from musica import  app
-from definicoes import FormularioUsuario
+from definicoes import FormularioUsuario, FormularioCadastroUsuario
 
 @app.route('/login')
 def login():
@@ -37,6 +37,14 @@ def autenticar():
         flash("Usuário ou Senha inválida!")
 
         return redirect(url_for('login'))
+    
+@app.route('/cadastraUsuario')
+def cadastra_usuario():
+
+    form = FormularioCadastroUsuario()
+
+    return render_template('cadastra_usuario.html', 
+                           titulo = 'Cadastro de Usuario', form = form)
 
 @app.route('/sair')
 def sair():
