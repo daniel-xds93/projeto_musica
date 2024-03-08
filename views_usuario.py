@@ -1,5 +1,5 @@
 from flask import render_template, request, redirect, session, flash, url_for
-from musica import  app
+from musica import  app, db
 from definicoes import FormularioUsuario, FormularioCadastroUsuario
 
 @app.route('/login')
@@ -45,6 +45,33 @@ def cadastra_usuario():
 
     return render_template('cadastra_usuario.html', 
                            titulo = 'Cadastro de Usuario', form = form)
+
+@app.route('/addUsuario')
+def adicionar_usuario():
+
+    formRecebido = FormularioCadastroUsuario(request.form)
+
+    if not formRecebido.validate_on_submit():
+        return redirect(url_for('cadastra_usuario'))
+    
+    nome = formRecebido.nome
+    usuario = formRecebido.usuario
+    senha = formRecebido.senha
+
+    from models import Usuario
+
+    usuario_existe = Usuario.query.filter_by(login_usuario=usuario).first()
+
+    if usuario_existe:
+        flash('Usuario já cadastrado')
+        return redirect(url_for('cadastra_usuario'))
+    
+    novo_usuario = Usuario(nome_usuario = nome, login_usuario = usuario,
+                            senha_usuario = senha)
+    
+    db.session.add(novo_usuario)
+    db.session.commit()
+
 
 @app.route('/sair')
 def sair():
