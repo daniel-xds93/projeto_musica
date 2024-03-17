@@ -46,7 +46,7 @@ def cadastra_usuario():
     return render_template('cadastra_usuario.html', 
                            titulo = 'Cadastro de Usuario', form = form)
 
-@app.route('/addUsuario')
+@app.route('/addUsuario', methods=['POST',])
 def adicionar_usuario():
 
     formRecebido = FormularioCadastroUsuario(request.form)
@@ -54,9 +54,9 @@ def adicionar_usuario():
     if not formRecebido.validate_on_submit():
         return redirect(url_for('cadastra_usuario'))
     
-    nome = formRecebido.nome
-    usuario = formRecebido.usuario
-    senha = formRecebido.senha
+    nome = formRecebido.nome.data
+    usuario = formRecebido.usuario.data
+    senha = formRecebido.senha.data
 
     from models import Usuario
 
@@ -71,6 +71,8 @@ def adicionar_usuario():
     
     db.session.add(novo_usuario)
     db.session.commit()
+
+    return redirect(url_for('listarMusicas'))
 
 
 @app.route('/sair')

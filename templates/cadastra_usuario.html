@@ -2,7 +2,9 @@
 
 {% block conteudo %}
 
-    <form>
+    <form method="post" action="/addUsuario">
+
+        {{ form.csrf_token() }}
         <div class="mb-3">
             {{ form.nome.label(class="form-label") }}
             {{ form.nome(class="form-control") }}
