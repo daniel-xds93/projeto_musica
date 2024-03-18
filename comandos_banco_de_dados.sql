@@ -106,6 +106,27 @@ delete from musica where id_usuario > '10';
 
 use playmusica;
 
-select * from musica;
+select * from usuario;
+
+
+alter table usuario
+modify senha_usuario varchar(255) not null;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

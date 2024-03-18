@@ -35,7 +35,7 @@ class FormularioCadastroUsuario(FlaskForm):
                                       validators.length(min=2, max=20)])
     
     senha = PasswordField('Senha', [validators.DataRequired(), 
-                                    validators.length(min=6, max=15)])
+                                    validators.length(min=6, max=255)])
     
     cadastrar = SubmitField("Cadastrar usuário")
     
