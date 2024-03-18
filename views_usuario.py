@@ -1,7 +1,7 @@
 from flask import render_template, request, redirect, session, flash, url_for
 from musica import  app, db
 from definicoes import FormularioUsuario, FormularioCadastroUsuario
-from flask_bcrypt import generate_password_hash
+from flask_bcrypt import generate_password_hash, check_password_hash
 
 @app.route('/login')
 def login():
@@ -19,19 +19,15 @@ def autenticar():
 
     usuario = Usuario.query.filter_by(login_usuario=form.usuario.data).first()
 
-    if usuario:
+    senha = check_password_hash(usuario.senha_usuario, form.senha.data)
 
-        if form.senha.data == usuario.senha_usuario:
+    if usuario and senha:
 
-            session['usuario_logado'] = usuario.login_usuario
+        session['usuario_logado'] = usuario.login_usuario
         
-            flash(f"Usuário {usuario.login_usuario} logado com sucesso!")
+        flash(f"Usuário {usuario.login_usuario} logado com sucesso!")
 
-            return redirect(url_for('listarMusicas'))
-        else:
-            flash("Senha inválida!")
-
-            return redirect(url_for('login'))
+        return redirect(url_for('listarMusicas'))
 
     else:
 
