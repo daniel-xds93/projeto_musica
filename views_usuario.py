@@ -72,6 +72,8 @@ def adicionar_usuario():
     db.session.add(novo_usuario)
     db.session.commit()
 
+    flash('Usuário cadastrado com sucesso!')
+
     return redirect(url_for('listarMusicas'))
 
 
