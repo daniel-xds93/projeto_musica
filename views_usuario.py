@@ -1,6 +1,7 @@
 from flask import render_template, request, redirect, session, flash, url_for
 from musica import  app, db
 from definicoes import FormularioUsuario, FormularioCadastroUsuario
+from flask_bcrypt import generate_password_hash
 
 @app.route('/login')
 def login():
@@ -59,7 +60,7 @@ def adicionar_usuario():
     
     nome = formRecebido.nome.data
     usuario = formRecebido.usuario.data
-    senha = formRecebido.senha.data
+    senha = generate_password_hash(formRecebido.senha.data).decode('utf-8')
 
     from models import Usuario
 
